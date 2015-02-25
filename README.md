@@ -1,25 +1,11 @@
 # Ember-cli-completable-input
 
-This README outlines the details of collaborating on this Ember addon.
+This add-on hosts an ember component used on the [bitzik](www.bitzik.com) web-app. 
 
-## Installation
+For who ever might want a text input that offers completions please try this one!
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+## Usage
 
-## Running
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+## Remarks
 
-## Running Tests
-
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).

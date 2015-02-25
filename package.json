@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-completable-input",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Completable or typeahead input. Dependence free, highly customizable.",
   "directories": {
     "doc": "doc",
     "test": "tests"
