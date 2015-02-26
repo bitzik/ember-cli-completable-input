@@ -1,0 +1,14 @@
+{{input type='text' class=inputClassNames value=value
+placeholder=placeholder enter='enterPressed'}}
+{{!focus-in='focusIn' focus-out='focusOut'}}
+{{#if showCompletions}}
+{{! #if potentialComplements}}
+  <div class="completion-list">
+    {{#each candidate in potentialComplements}}
+      <div {{bind-attr class=":completion-candidate candidate.isActive:active"}}
+        {{action 'selectComplement' candidate}} >
+        {{candidate.value}}
+      </div>
+    {{/each}}
+  </div>
+{{/if}}
