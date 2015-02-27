@@ -6,6 +6,11 @@ For who ever might want a text input that offers completions please try this one
 
 ## Usage
 
+### Basic
+
+### Advanced (aka thanks god ember is great!)
+
+### CSS customization?
 
 ## Remarks
 

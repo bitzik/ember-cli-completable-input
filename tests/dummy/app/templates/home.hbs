@@ -1,0 +1,15 @@
+<form>
+  <fieldset>
+    <label for="minForComplement">Minimal number of character before showing up completions?</label><br/>
+    {{input type="number" min=0 value=minForComplement id="minForComplement"}}<br/>
+    <label for="possibleComplements">Place complemetns here, separate by a comma or a new line (prefilled by the list of countries from <a href="http://openconcept.ca/blog/mgifford/text-list-all-countries-world">here</a>)</label><br/>
+    {{textarea value=possibleComplements rows=8 id="possibleComplements"}}<br/>
+  </fieldset>
+</form>
+<p class="center">
+  Enter something:
+  {{completable-input value=completableValue placeholder='start typing and completion will appear'
+  complements=complements selectedCompletion=currentCompletion
+  enter='completableEnterPressed' minForComplement=minForComplement
+  }}
+</p>
