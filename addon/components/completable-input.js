@@ -1,6 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  /*-------------------------------
+   | parameters and input/output  |
+   -------------------------------*/
+  classNames: 'completable-input',
+  complements : [],
+  minForComplement: 3,
+
+  /*-------------------
+   | logic and setup  |
+   -------------------*/
+  potentialComplements: [],
   jqueryInitializer: function () {
     "use strict";
     var self = this;
@@ -29,14 +40,10 @@ export default Ember.Component.extend({
       });
     }
   }.observes('showCompletions'),
-  classNames: 'completable-input',
   inputClassNames: function () {
     "use strict";
     return 'completable-input-entry ' + this.get('input-class');
   }.property('input-class'),
-  potentialComplements: [],
-  complements : [],
-  minForComplement: 3,
   inFocus: false,
   potentialComplementsRefresh: function () {
     "use strict";

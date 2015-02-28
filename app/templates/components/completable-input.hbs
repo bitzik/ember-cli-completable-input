@@ -1,9 +1,15 @@
-{{input type='text' class=inputClassNames value=value
-placeholder=placeholder enter='enterPressed'}}
-{{!focus-in='focusIn' focus-out='focusOut'}}
-{{#if showCompletions}}
-{{! #if potentialComplements}}
-  <div class="completion-list">
+{{
+  input type='text' class=inputClassNames value=value
+  placeholder=placeholder enter='enterPressed'
+
+}}
+{{!
+focus-in='focusIn' focus-out='focusOut'
+}}
+
+{{!#if showCompletions}}
+  <div {{bind-attr class=":completion-list showCompletion:show:hide" }}>
+  <!--<div class="completion-list">-->
     {{#each candidate in potentialComplements}}
       <div {{bind-attr class=":completion-candidate candidate.isActive:active"}}
         {{action 'selectComplement' candidate}} >
@@ -11,4 +17,4 @@ placeholder=placeholder enter='enterPressed'}}
       </div>
     {{/each}}
   </div>
-{{/if}}
+{{!/if}}

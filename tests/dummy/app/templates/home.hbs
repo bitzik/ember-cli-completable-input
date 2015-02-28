@@ -10,6 +10,20 @@
   Enter something:
   {{completable-input value=completableValue placeholder='start typing and completion will appear'
   complements=complements selectedCompletion=currentCompletion
-  enter='completableEnterPressed' minForComplement=minForComplement
+  enter='completableEnterPressed' minForComplement=minForComplement shouldShowComplements=shouldShowComplements
+  possibleComplements=possibleComplements
   }}
 </p>
+
+<div>
+  <fieldset>
+    <legend>debug zone</legend>
+
+    <p>
+      shouldShowComplements? {{shouldShowComplements}}
+    </p>
+    <p>
+      possibleComplements.length?  {{possibleComplements.length}}
+    </p>
+  </fieldset>
+</div>
