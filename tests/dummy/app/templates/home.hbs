@@ -1,29 +1,34 @@
 <form>
   <fieldset>
+    <legend>parameters</legend>
     <label for="minForComplement">Minimal number of character before showing up completions?</label><br/>
     {{input type="number" min=0 value=minForComplement id="minForComplement"}}<br/>
     <label for="possibleComplements">Place complemetns here, separate by a comma or a new line (prefilled by the list of countries from <a href="http://openconcept.ca/blog/mgifford/text-list-all-countries-world">here</a>)</label><br/>
     {{textarea value=possibleComplements rows=8 id="possibleComplements"}}<br/>
   </fieldset>
 </form>
-<p class="center">
-  Enter something:
-  {{completable-input value=completableValue placeholder='start typing and completion will appear'
-  complements=complements selectedCompletion=currentCompletion
-  enter='completableEnterPressed' minForComplement=minForComplement shouldShowComplements=shouldShowComplements
-  possibleComplements=possibleComplements
-  }}
-</p>
 
 <div>
   <fieldset>
     <legend>debug zone</legend>
 
     <p>
-      shouldShowComplements? {{shouldShowComplements}}
-    </p>
-    <p>
-      possibleComplements.length?  {{possibleComplements.length}}
+      showCompletions? {{showCompletions}} <br/>
+      potentialComplements.length?  {{potentialComplements.length}} <br/>
+      inFocus? {{inFocus}}<br/>
+      activeComplement? {{activeComplement.value}}
     </p>
   </fieldset>
 </div>
+
+
+<p class="center">
+  Enter something:
+  {{completable-input value=completableValue placeholder='start typing and completion will appear'
+  complements=complements selectedCompletion=currentCompletion
+  enter='completableEnterPressed' minForComplement=minForComplement
+  showCompletions=showCompletions potentialComplements=potentialComplements
+  inFocus=inFocus activeComplement=activeComplement
+  }}
+</p>
+

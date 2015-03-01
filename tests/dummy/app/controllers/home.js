@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   //Completable input config
+  potentialComplements: [],
   completableValue: null,
   minForComplement: 0,
   complements:
