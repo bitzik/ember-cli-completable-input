@@ -3,7 +3,7 @@
     <legend>parameters</legend>
     <label for="minForComplement">Minimal number of character before showing up completions?</label><br/>
     {{input type="number" min=0 value=minForComplement id="minForComplement"}}<br/>
-    <label for="possibleComplements">Place complemetns here, separate by a comma or a new line (prefilled by the list of countries from <a href="http://openconcept.ca/blog/mgifford/text-list-all-countries-world">here</a>)</label><br/>
+    <label for="possibleComplements">Place complements here, separate by a comma or a new line (pre-filled by the list of countries from <a href="http://openconcept.ca/blog/mgifford/text-list-all-countries-world">here</a>)</label><br/>
     {{textarea value=possibleComplements rows=8 id="possibleComplements"}}<br/>
   </fieldset>
 </form>
@@ -27,7 +27,7 @@
   {{completable-input value=completableValue placeholder='start typing and completion will appear'
   complements=complements selectedCompletion=currentCompletion
   enter='completableEnterPressed' minForComplement=minForComplement
-  showCompletions=showCompletions potentialComplements=potentialComplements
+  potentialComplements=potentialComplements
   inFocus=inFocus activeComplement=activeComplement
   }}
 </p>

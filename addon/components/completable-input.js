@@ -5,6 +5,9 @@ export default Ember.Component.extend({
    | parameters and input/output  |
    -------------------------------*/
   classNames: 'completable-input',
+  /**
+   * Array: a list of possible completion for the input.
+   */
   complements : [],
   minForComplement: 3,
 
@@ -24,7 +27,8 @@ export default Ember.Component.extend({
         event.preventDefault(); event.stopPropagation();
         self.send('previousComplement');
       }
-    }).focusin(function () {
+    });
+    this.$().focusin(function () {
       self.send('focusIn');
     }).focusout(function () {
       self.send('focusOut');
@@ -36,7 +40,8 @@ export default Ember.Component.extend({
     if (this.get('showCompletions')) {
       this.$('.completion-candidate').on('click', function (event) {
         Ember.Logger.warn('click on the list!');
-        event.preventDefault(); event.stopPropagation();
+        //TODO perhaps reset the focus back on the input right here!
+        //event.preventDefault(); event.stopPropagation();
       });
     }
   }.observes('showCompletions'),
