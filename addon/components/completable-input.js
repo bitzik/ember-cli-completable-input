@@ -9,54 +9,47 @@ export default Ember.Component.extend({
    * Array: a list of possible completion for the input.
    */
   complements : [],
+  /**
+   * integer: how many character should be inputted before the completion panel shows up.
+   */
   minForComplement: 3,
 
   /*-------------------
    | logic and setup  |
    -------------------*/
+  /**
+   * a filtered list of the complements that match the currently inputted characters
+   */
   potentialComplements: [],
+  /**
+   * Handle the jQuery wiring mainly for the keyboard events on the input-text.
+   */
   jqueryInitializer: function () {
     "use strict";
     var self = this;
-    this.$('input.completable-input-entry').on('keydown', function (event) {
+    this.$('input.completable-input-entry').on('keyup', function (event) {
       if (event.keyCode === 40) {
         //key down:
         event.preventDefault(); event.stopPropagation();
         self.send('nextComplement');
       } else if (event.keyCode === 38) {
+        //key up:
         event.preventDefault(); event.stopPropagation();
         self.send('previousComplement');
       }
     });
     this.$().focusin(function () {
+      //using custom jQuery allow to manipulate the Event
       self.send('focusIn');
     }).focusout(function (e) {
       if (self.get('showCompletions')) {
         //then we should delay everything
-        Ember.Logger.debug('if completions are shown, then we should delay everything');
         e.stopPropagation(); e.preventDefault();
-        //Ember.run.later(function () {
-          Ember.Logger.debug('delayed focus-out execution');
-          self.$('input.completable-input-entry').trigger(e);
-        //}, 0);
+        self.$('input.completable-input-entry').trigger(e);
       } else {
         self.send('focusOut');
       }
     });
-  //}.on('didInsertElement'),
-  //addClickListener: function () {
-  //  "use strict";
-  //  var self = this;
-  //  Ember.Logger.debug('addClickListener', this.get('showCompletions'));
-    //if (this.get('showCompletions')) {
-    //  this.$('.completion-candidate').on('click', function () {//event) {
-    //    Ember.Logger.warn('click on the list!');
-    //    TODO perhaps reset the focus back on the input right here!
-        //self.$('input.'+self.get('inputClassNames')).focus();
-        //event.preventDefault(); event.stopPropagation();
-      //});
-    //}
-  //}.observes('showCompletions'),
   }.on('didInsertElement'),
   inputClassNames: function () {
     "use strict";
@@ -69,18 +62,13 @@ export default Ember.Component.extend({
       value = this.get('value') || '',
       potentialComplements;
     Ember.run.once(function () {
-      //Ember.Logger.debug('completable-input -> value = ', value);
-      //if (!Ember.isNone(value) && value.length >= self.get('minForComplement')) {
       if (value.length >= self.get('minForComplement')) {
         potentialComplements = self.get('complements').map(function (item) {
-          //Ember.Logger.debug('sorting item', item);
           return Ember.Object.create({value: item, isActive: false});
         }).filter(function (item) {
           var prefix = item.value.slice(0, value.length);
-          //Ember.Logger.debug('item ', item, ' prefix ', prefix);
           return prefix === value;
         }).sortBy('value');
-        Ember.Logger.debug('potentialComplements -> ', potentialComplements.length);
         self.set('potentialComplements', potentialComplements);
       }
     });
@@ -89,12 +77,9 @@ export default Ember.Component.extend({
   isActiveUpdater: function () {
     "use strict";
     var activeComplement = this.get('activeComplement');
-    //Ember.Logger.debug('activeComplement is ', activeComplement);
     this.get('potentialComplements').forEach(function (item) {
       item.set('isActive', item === activeComplement);
-      //item.isActive = item === activeComplement;
       if (item.get('isActive')) {
-        //Ember.Logger.debug('active item -> ', item);
         Ember.Logger.debug('active item found!');
       }
     });
@@ -115,66 +100,45 @@ export default Ember.Component.extend({
       showCompletions = inFocus &&
         (potentialComplements.length > 1 ||
         (!Ember.isNone(firstComplements) && this.get('value') !== firstComplements.get('value')));
-    Ember.Logger.debug('showCompletion -> ', showCompletions, 'focus -> ', this.get('inFocus'));
     return showCompletions;
   }.property('potentialComplements.length', 'inFocus'),
   actions: {
     focusIn: function () {
       "use strict";
-      var self = this;
-      //Ember.Logger.debug('focusIn -> ', arguments);
-      //Ember.run.later(function () {
-        self.set('inFocus', true);
-      //}, 250);
+      this.set('inFocus', true);
     },
     focusOut: function () {
       "use strict";
-      var self = this;
-      //Ember.Logger.debug('focusOut -> ', arguments);
-      //Ember.run.later(function () {
-        self.set('inFocus', false);
-      //}, 200);
+      this.set('inFocus', false);
     },
     nextComplement: function () {
       "use strict";
       var idx = this.get('potentialComplements').indexOf(this.get('activeComplement')),
         nextComplement = this.get('potentialComplements').objectAt(idx + 1);
-      //Ember.Logger.debug('nextComplement!');
       if (!Ember.isNone(nextComplement)) {
         this.set('activeComplement', nextComplement);
-        Ember.Logger.debug('next complement validated!');
       }
     },
     previousComplement: function () {
       "use strict";
       var idx = this.get('potentialComplements').indexOf(this.get('activeComplement')),
         prevComplement = this.get('potentialComplements').objectAt(idx - 1);
-      //Ember.Logger.debug('prevComplement!');
       if (!Ember.isNone(prevComplement)) {
         this.set('activeComplement', prevComplement);
-        Ember.Logger.debug('prev complement validated!');
       }
     },
     selectComplement: function (candidate) {
       "use strict";
       Ember.Logger.debug('selectComplement!');
-      //Ember.Logger.debug(candidate);
-      //Ember.Logger.debug(this.get('potentialComplements').contains(candidate));
       if (this.get('potentialComplements').contains(candidate)) {
         this.set('activeComplement', candidate);
-        Ember.Logger.debug('select complement validated!', candidate.get('value'));
         this.$('input.completable-input-entry').focus();
-        //TODO make sure this is the correct behaviour
-        //i.e. do we want to complete the current value as soon as the click is done
-        // or should we let the opportunity to a thrid-party user to do
-        // something before that
         this.send('enterPressed');
       }
     },
     enterPressed: function () {
       "use strict";
       var self = this;
-      Ember.Logger.debug('enterPressed -> ', arguments);
       if (!Ember.isNone(this.get('activeComplement'))) {
         this.set('value', this.get('activeComplement').get('value'));
       }
