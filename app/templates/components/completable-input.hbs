@@ -11,8 +11,9 @@ focus-in='focusIn' focus-out='focusOut'
   <div {{bind-attr class=":completion-list showCompletions:show:hide" }}>
   <!--<div class="completion-list">-->
     {{#each candidate in potentialComplements}}
-      <div {{bind-attr class=":completion-candidate candidate.isActive:active"}}>
-        <span {{action "selectComplement" candidate}}> {{candidate.value}} </span>
+      <div {{bind-attr class=":completion-candidate candidate.isActive:active"}}
+        {{action "selectComplement" candidate}}>
+        {{candidate.value}}
       </div>
     {{/each}}
   </div>

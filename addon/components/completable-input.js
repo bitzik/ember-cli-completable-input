@@ -30,21 +30,34 @@ export default Ember.Component.extend({
     });
     this.$().focusin(function () {
       self.send('focusIn');
-    }).focusout(function () {
-      self.send('focusOut');
+    }).focusout(function (e) {
+      if (self.get('showCompletions')) {
+        //then we should delay everything
+        Ember.Logger.debug('if completions are shown, then we should delay everything');
+        e.stopPropagation(); e.preventDefault();
+        //Ember.run.later(function () {
+          Ember.Logger.debug('delayed focus-out execution');
+          self.$('input.completable-input-entry').trigger(e);
+        //}, 0);
+      } else {
+        self.send('focusOut');
+      }
     });
-  }.on('didInsertElement'),
-  addClickListener: function () {
-    "use strict";
-    Ember.Logger.debug('addClickListener', this.get('showCompletions'));
-    if (this.get('showCompletions')) {
-      this.$('.completion-candidate').on('click', function (event) {
-        Ember.Logger.warn('click on the list!');
-        //TODO perhaps reset the focus back on the input right here!
+  //}.on('didInsertElement'),
+  //addClickListener: function () {
+  //  "use strict";
+  //  var self = this;
+  //  Ember.Logger.debug('addClickListener', this.get('showCompletions'));
+    //if (this.get('showCompletions')) {
+    //  this.$('.completion-candidate').on('click', function () {//event) {
+    //    Ember.Logger.warn('click on the list!');
+    //    TODO perhaps reset the focus back on the input right here!
+        //self.$('input.'+self.get('inputClassNames')).focus();
         //event.preventDefault(); event.stopPropagation();
-      });
-    }
-  }.observes('showCompletions'),
+      //});
+    //}
+  //}.observes('showCompletions'),
+  }.on('didInsertElement'),
   inputClassNames: function () {
     "use strict";
     return 'completable-input-entry ' + this.get('input-class');
@@ -110,17 +123,17 @@ export default Ember.Component.extend({
       "use strict";
       var self = this;
       //Ember.Logger.debug('focusIn -> ', arguments);
-      Ember.run.later(function () {
+      //Ember.run.later(function () {
         self.set('inFocus', true);
-      }, 250);
+      //}, 250);
     },
     focusOut: function () {
       "use strict";
       var self = this;
       //Ember.Logger.debug('focusOut -> ', arguments);
-      Ember.run.later(function () {
+      //Ember.run.later(function () {
         self.set('inFocus', false);
-      }, 200);
+      //}, 200);
     },
     nextComplement: function () {
       "use strict";
@@ -150,6 +163,7 @@ export default Ember.Component.extend({
       if (this.get('potentialComplements').contains(candidate)) {
         this.set('activeComplement', candidate);
         Ember.Logger.debug('select complement validated!', candidate.get('value'));
+        this.$('input.completable-input-entry').focus();
         //TODO make sure this is the correct behaviour
         //i.e. do we want to complete the current value as soon as the click is done
         // or should we let the opportunity to a thrid-party user to do
