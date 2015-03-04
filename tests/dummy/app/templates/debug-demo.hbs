@@ -1,4 +1,20 @@
 <h1> welcome to the demo/test page! </h1>
+
+
+<fieldset>
+  <legend>The actual component</legend>
+  <p class="text-center">
+    Enter something:
+    {{completable-input value=completableValue placeholder='start typing and completion will appear'
+    complements=complements selectedCompletion=currentCompletion
+    enter='completableEnterPressed' minForComplement=minForComplement
+    potentialComplements=potentialComplements
+    inFocus=inFocus activeComplement=activeComplement
+    }}
+  </p>
+</fieldset>
+
+
 <form>
   <fieldset>
     <legend>parameters</legend>
@@ -23,16 +39,4 @@
 </div>
 
 
-<fieldset>
-  <legend>The actual component</legend>
-  <p class="text-center">
-    Enter something:
-    {{completable-input value=completableValue placeholder='start typing and completion will appear'
-    complements=complements selectedCompletion=currentCompletion
-    enter='completableEnterPressed' minForComplement=minForComplement
-    potentialComplements=potentialComplements
-    inFocus=inFocus activeComplement=activeComplement
-    }}
-  </p>
-</fieldset>
 
