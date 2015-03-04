@@ -17,6 +17,10 @@ export default Ember.Component.extend({
    * boolean: self-explanatory
    */
   caseSensitive: false,
+  /**
+   * string: selected completion
+   */
+  selectedCompletion: null,
 
   /*-------------------
    | logic and setup  |
@@ -71,7 +75,7 @@ export default Ember.Component.extend({
           return Ember.Object.create({value: item, isActive: false});
         }).filter(function (item) {
           var prefix = item.value.slice(0, value.length);
-          if (this.get('caseSensitive')) {
+          if (self.get('caseSensitive')) {
             return prefix === value;
           } else {
             return prefix.toLowerCase() === value.toLowerCase();
