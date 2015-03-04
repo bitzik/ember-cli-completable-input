@@ -1,18 +1,29 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <span class="navbar-brand">Completable-input</span>
-    <ul class="nav navbar-nav">
-      <li {{bind-attr class="isHome:active"}}>
-        {{#link-to 'home'}}Home{{/link-to}}
-      </li>
-      <li {{bind-attr class="isDebugDemo:active"}}>
-        {{#link-to 'debug-demo'}}Debug / demo{{/link-to}}
-      </li>
-      <li {{bind-attr class="isWithStyle:active"}}>
-        {{#link-to 'with-style'}}With style{{/link-to}}
-      </li>
-    </ul>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Completable-input</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li {{bind-attr class="isHome:active"}}>
+          {{#link-to 'home'}}Home{{/link-to}}
+        </li>
+        <li {{bind-attr class="isDebugDemo:active"}}>
+          {{#link-to 'debug-demo'}}Debug / demo{{/link-to}}
+        </li>
+        <li {{bind-attr class="isWithStyle:active"}}>
+          {{#link-to 'with-style'}}With style{{/link-to}}
+        </li>
+      </ul>
+    </div>
   </div><!-- /.container-fluid -->
 </nav>
-
-{{outlet}}
+<div class="container">
+  {{outlet}}
+</div>

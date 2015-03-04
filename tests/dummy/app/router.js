@@ -9,6 +9,7 @@ Router.map(function() {
   "use strict";
   this.route('home', {path: '/'});
   this.route('with-style');
+  this.route('debug-demo');
 });
 
 export default Router;
