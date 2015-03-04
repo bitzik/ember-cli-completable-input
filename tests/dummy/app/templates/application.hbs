@@ -1,3 +1,18 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <span class="navbar-brand">Completable-input</span>
+    <ul class="nav navbar-nav">
+      <li {{bind-attr class="isHome:active"}}>
+        {{#link-to 'home'}}Home{{/link-to}}
+      </li>
+      <li {{bind-attr class="isDebugDemo:active"}}>
+        {{#link-to 'debug-demo'}}Debug / demo{{/link-to}}
+      </li>
+      <li {{bind-attr class="isWithStyle:active"}}>
+        {{#link-to 'with-style'}}With style{{/link-to}}
+      </li>
+    </ul>
+  </div><!-- /.container-fluid -->
+</nav>
 
 {{outlet}}
