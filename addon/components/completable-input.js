@@ -13,6 +13,10 @@ export default Ember.Component.extend({
    * integer: how many character should be inputted before the completion panel shows up.
    */
   minForComplement: 3,
+  /**
+   * boolean: self-explanatory
+   */
+  caseSensitive: false,
 
   /*-------------------
    | logic and setup  |
@@ -67,7 +71,11 @@ export default Ember.Component.extend({
           return Ember.Object.create({value: item, isActive: false});
         }).filter(function (item) {
           var prefix = item.value.slice(0, value.length);
-          return prefix === value;
+          if (this.get('caseSensitive')) {
+            return prefix === value;
+          } else {
+            return prefix.toLowerCase() === value.toLowerCase();
+          }
         }).sortBy('value');
         self.set('potentialComplements', potentialComplements);
       }
