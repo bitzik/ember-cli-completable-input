@@ -357,7 +357,7 @@ define('dummy/templates/debug-demo', ['exports', 'ember'], function (exports, Em
     var buffer = '', stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-    data.buffer.push("<h1> welcome to the demo/test page! </h1>\r\n\r\n\r\n<fieldset>\r\n  <legend>The actual component</legend>\r\n  <p class=\"text-center\">\r\n    Enter something:\r\n    ");
+    data.buffer.push("<h1> welcome to the demo/test page! </h1>\n\n\n<fieldset>\n  <legend>The actual component</legend>\n  <p class=\"text-center\">\n    Enter something:\n    ");
     data.buffer.push(escapeExpression((helper = helpers['completable-input'] || (depth0 && depth0['completable-input']),options={hash:{
       'value': ("completableValue"),
       'placeholder': ("start typing and completion will appear"),
@@ -369,32 +369,32 @@ define('dummy/templates/debug-demo', ['exports', 'ember'], function (exports, Em
       'inFocus': ("inFocus"),
       'activeComplement': ("activeComplement")
     },hashTypes:{'value': "ID",'placeholder': "STRING",'complements': "ID",'selectedCompletion': "ID",'enter': "STRING",'minForComplement': "ID",'potentialComplements': "ID",'inFocus': "ID",'activeComplement': "ID"},hashContexts:{'value': depth0,'placeholder': depth0,'complements': depth0,'selectedCompletion': depth0,'enter': depth0,'minForComplement': depth0,'potentialComplements': depth0,'inFocus': depth0,'activeComplement': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "completable-input", options))));
-    data.buffer.push("\r\n  </p>\r\n</fieldset>\r\n\r\n\r\n<form>\r\n  <fieldset>\r\n    <legend>parameters</legend>\r\n    <label for=\"minForComplement\">Minimal number of character before showing up completions?</label><br/>\r\n    ");
+    data.buffer.push("\n  </p>\n</fieldset>\n\n\n<form>\n  <fieldset>\n    <legend>parameters</legend>\n    <label for=\"minForComplement\">Minimal number of character before showing up completions?</label><br/>\n    ");
     data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
       'type': ("number"),
       'min': (0),
       'value': ("minForComplement"),
       'id': ("minForComplement")
     },hashTypes:{'type': "STRING",'min': "INTEGER",'value': "ID",'id': "STRING"},hashContexts:{'type': depth0,'min': depth0,'value': depth0,'id': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-    data.buffer.push("<br/>\r\n    <label for=\"possibleComplements\">Place complements here, separate by a comma or a new line (pre-filled by the list of countries from <a href=\"http://openconcept.ca/blog/mgifford/text-list-all-countries-world\">here</a>)</label><br/>\r\n    ");
+    data.buffer.push("<br/>\n    <label for=\"possibleComplements\">Place complements here, separate by a comma or a new line (pre-filled by the list of countries from <a href=\"http://openconcept.ca/blog/mgifford/text-list-all-countries-world\">here</a>)</label><br/>\n    ");
     data.buffer.push(escapeExpression((helper = helpers.textarea || (depth0 && depth0.textarea),options={hash:{
       'value': ("possibleComplements"),
       'rows': (8),
       'id': ("possibleComplements")
     },hashTypes:{'value': "ID",'rows': "INTEGER",'id': "STRING"},hashContexts:{'value': depth0,'rows': depth0,'id': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "textarea", options))));
-    data.buffer.push("<br/>\r\n  </fieldset>\r\n</form>\r\n\r\n<div>\r\n  <fieldset>\r\n    <legend>debug zone</legend>\r\n\r\n    <p>\r\n      showCompletions? ");
+    data.buffer.push("<br/>\n  </fieldset>\n</form>\n\n<div>\n  <fieldset>\n    <legend>debug zone</legend>\n\n    <p>\n      showCompletions? ");
     stack1 = helpers._triageMustache.call(depth0, "showCompletions", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
     if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push(" <br/>\r\n      potentialComplements.length?  ");
+    data.buffer.push(" <br/>\n      potentialComplements.length?  ");
     stack1 = helpers._triageMustache.call(depth0, "potentialComplements.length", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
     if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push(" <br/>\r\n      inFocus? ");
+    data.buffer.push(" <br/>\n      inFocus? ");
     stack1 = helpers._triageMustache.call(depth0, "inFocus", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
     if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("<br/>\r\n      activeComplement? ");
+    data.buffer.push("<br/>\n      activeComplement? ");
     stack1 = helpers._triageMustache.call(depth0, "activeComplement.value", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
     if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\r\n    </p>\r\n  </fieldset>\r\n</div>\r\n\r\n\r\n\r\n");
+    data.buffer.push("\n    </p>\n  </fieldset>\n</div>\n\n\n\n");
     return buffer;
     
   });
