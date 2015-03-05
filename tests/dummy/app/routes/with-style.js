@@ -3,6 +3,6 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model: function () {
     "use strict";
-    return Ember.$.ajax('/with-style.md');
+    return Ember.$.ajax('./with-style.md');
   }
 });

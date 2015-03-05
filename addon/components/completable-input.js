@@ -82,6 +82,8 @@ export default Ember.Component.extend({
           }
         }).sortBy('value');
         self.set('potentialComplements', potentialComplements);
+      } else {
+        self.set('potentialComplements', []);
       }
     });
   }.observes('complements.@each', 'minForComplement', 'value').on('init', 'focusIn'),
