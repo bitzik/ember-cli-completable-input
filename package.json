@@ -11,11 +11,11 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": "https://github.com/bitzik/ember-cli-completable-input/",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Leo jPod",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.0",
@@ -35,7 +35,7 @@
     "glob": "^4.0.5"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon", "typeahead", "completion", "text", "input"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
