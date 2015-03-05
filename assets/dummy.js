@@ -225,7 +225,7 @@ define('dummy/routes/home', ['exports', 'ember'], function (exports, Ember) {
   exports['default'] = Ember['default'].Route.extend({
     model: function () {
       "use strict";
-      return Ember['default'].$.ajax("./README.md");
+      return Ember['default'].$.ajax("./ember-cli-completable-input/README.md");
     }
   });
 
@@ -237,7 +237,7 @@ define('dummy/routes/with-style', ['exports', 'ember'], function (exports, Ember
   exports['default'] = Ember['default'].Route.extend({
     model: function () {
       "use strict";
-      return Ember['default'].$.ajax("./with-style.md");
+      return Ember['default'].$.ajax("./ember-cli-completable-input/with-style.md");
     }
   });
 
