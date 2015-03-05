@@ -10,3 +10,8 @@ tests/
 bower.json
 Brocfile.js
 testem.json
+
+tmp/
+dist/
+.git/
+.idea/
