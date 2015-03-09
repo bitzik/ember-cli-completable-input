@@ -50,11 +50,12 @@ export default Ember.Component.extend({
       //using custom jQuery allow to manipulate the Event
       self.send('focusIn');
     }).focusout(function (e) {
-      if (self.get('showCompletions')) {
-        //then we should delay everything
-        e.stopPropagation(); e.preventDefault();
-        self.$('input.completable-input-entry').trigger(e);
+      Ember.Logger.debug('focusout');
+      if (self.get('showCompletions') && self.$('.completion-list:hover').length > 0) {
+        Ember.Logger.debug('let us stop it!');
+        e.preventDefault(); e.stopPropagation();
       } else {
+        Ember.Logger.debug('real focusout');
         self.send('focusOut');
       }
     });
@@ -110,12 +111,16 @@ export default Ember.Component.extend({
   showCompletions: function () {
     "use strict";
     var inFocus = this.get('inFocus'), potentialComplements = this.get('potentialComplements'),
-      firstComplements = potentialComplements.objectAt(0),
+      firstComplement = potentialComplements.objectAt(0),
       showCompletions = inFocus &&
         (potentialComplements.length > 1 ||
-        (!Ember.isNone(firstComplements) && this.get('value') !== firstComplements.get('value')));
+        (!Ember.isNone(firstComplement) && this.get('value') !== firstComplement.get('value')));
     return showCompletions;
   }.property('potentialComplements.length', 'inFocus'),
+  showCompletionsObserver: function () {
+    "use strict";
+    Ember.Logger.debug('showCompletions -> ', this.get('showCompletions'));
+  }.observes('showCompletions'),
   actions: {
     focusIn: function () {
       "use strict";
@@ -123,6 +128,7 @@ export default Ember.Component.extend({
     },
     focusOut: function () {
       "use strict";
+      Ember.Logger.debug('focusOut!!!');
       this.set('inFocus', false);
     },
     nextComplement: function () {
