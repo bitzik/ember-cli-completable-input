@@ -242,226 +242,692 @@ define('dummy/routes/with-style', ['exports', 'ember'], function (exports, Ember
   });
 
 });
-define('dummy/templates/application', ['exports', 'ember'], function (exports, Ember) {
+define('dummy/templates/application', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data
-  /**/) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', stack1, helper, options, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
-
-  function program1(depth0,data) {
-    
-    
-    data.buffer.push("Home");
-    }
-
-  function program3(depth0,data) {
-    
-    
-    data.buffer.push("Debug / demo");
-    }
-
-  function program5(depth0,data) {
-    
-    
-    data.buffer.push("With style");
-    }
-
-    data.buffer.push("<nav class=\"navbar navbar-default\">\r\n  <div class=\"container-fluid\">\r\n    <div class=\"navbar-header\">\r\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\r\n        <span class=\"sr-only\">Toggle navigation</span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n      </button>\r\n      <a class=\"navbar-brand\" href=\"#\">Completable-input</a>\r\n    </div>\r\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\r\n      <ul class=\"nav navbar-nav\">\r\n        <li ");
-    data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
-      'class': ("isHome:active")
-    },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
-    data.buffer.push(">\r\n          ");
-    stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "home", options) : helperMissing.call(depth0, "link-to", "home", options));
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\r\n        </li>\r\n        <li ");
-    data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
-      'class': ("isDebugDemo:active")
-    },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
-    data.buffer.push(">\r\n          ");
-    stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "debug-demo", options) : helperMissing.call(depth0, "link-to", "debug-demo", options));
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\r\n        </li>\r\n        <li ");
-    data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
-      'class': ("isWithStyle:active")
-    },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
-    data.buffer.push(">\r\n          ");
-    stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "with-style", options) : helperMissing.call(depth0, "link-to", "with-style", options));
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div><!-- /.container-fluid -->\r\n</nav>\r\n<div class=\"container\">\r\n  ");
-    stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\r\n</div>\r\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    var child0 = (function() {
+      return {
+        isHTMLBars: true,
+        blockParams: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        build: function build(dom) {
+          var el0 = dom.createTextNode("Home");
+          return el0;
+        },
+        render: function render(context, env, contextualElement) {
+          var dom = env.dom;
+          dom.detectNamespace(contextualElement);
+          var fragment;
+          if (env.useFragmentCache && dom.canClone) {
+            if (this.cachedFragment === null) {
+              fragment = this.build(dom);
+              if (this.hasRendered) {
+                this.cachedFragment = fragment;
+              } else {
+                this.hasRendered = true;
+              }
+            }
+            if (this.cachedFragment) {
+              fragment = dom.cloneNode(this.cachedFragment, true);
+            }
+          } else {
+            fragment = this.build(dom);
+          }
+          return fragment;
+        }
+      };
+    }());
+    var child1 = (function() {
+      return {
+        isHTMLBars: true,
+        blockParams: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        build: function build(dom) {
+          var el0 = dom.createTextNode("Debug / demo");
+          return el0;
+        },
+        render: function render(context, env, contextualElement) {
+          var dom = env.dom;
+          dom.detectNamespace(contextualElement);
+          var fragment;
+          if (env.useFragmentCache && dom.canClone) {
+            if (this.cachedFragment === null) {
+              fragment = this.build(dom);
+              if (this.hasRendered) {
+                this.cachedFragment = fragment;
+              } else {
+                this.hasRendered = true;
+              }
+            }
+            if (this.cachedFragment) {
+              fragment = dom.cloneNode(this.cachedFragment, true);
+            }
+          } else {
+            fragment = this.build(dom);
+          }
+          return fragment;
+        }
+      };
+    }());
+    var child2 = (function() {
+      return {
+        isHTMLBars: true,
+        blockParams: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        build: function build(dom) {
+          var el0 = dom.createTextNode("With style");
+          return el0;
+        },
+        render: function render(context, env, contextualElement) {
+          var dom = env.dom;
+          dom.detectNamespace(contextualElement);
+          var fragment;
+          if (env.useFragmentCache && dom.canClone) {
+            if (this.cachedFragment === null) {
+              fragment = this.build(dom);
+              if (this.hasRendered) {
+                this.cachedFragment = fragment;
+              } else {
+                this.hasRendered = true;
+              }
+            }
+            if (this.cachedFragment) {
+              fragment = dom.cloneNode(this.cachedFragment, true);
+            }
+          } else {
+            fragment = this.build(dom);
+          }
+          return fragment;
+        }
+      };
+    }());
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("nav");
+        dom.setAttribute(el1,"class","navbar navbar-default");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2,"class","container-fluid");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3,"class","navbar-header");
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("button");
+        dom.setAttribute(el4,"type","button");
+        dom.setAttribute(el4,"class","navbar-toggle collapsed");
+        dom.setAttribute(el4,"data-toggle","collapse");
+        dom.setAttribute(el4,"data-target","#bs-example-navbar-collapse-1");
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("span");
+        dom.setAttribute(el5,"class","sr-only");
+        var el6 = dom.createTextNode("Toggle navigation");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("span");
+        dom.setAttribute(el5,"class","icon-bar");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("span");
+        dom.setAttribute(el5,"class","icon-bar");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("span");
+        dom.setAttribute(el5,"class","icon-bar");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n      ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("a");
+        dom.setAttribute(el4,"class","navbar-brand");
+        dom.setAttribute(el4,"href","#");
+        var el5 = dom.createTextNode("Completable-input");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3,"class","collapse navbar-collapse");
+        dom.setAttribute(el3,"id","bs-example-navbar-collapse-1");
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("ul");
+        dom.setAttribute(el4,"class","nav navbar-nav");
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("li");
+        var el6 = dom.createTextNode("\n          ");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n        ");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("li");
+        var el6 = dom.createTextNode("\n          ");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n        ");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("li");
+        var el6 = dom.createTextNode("\n          ");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n        ");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n      ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment(" /.container-fluid ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1,"class","container");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, element = hooks.element, block = hooks.block, content = hooks.content;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        var element0 = dom.childAt(fragment, [0, 1, 3, 1]);
+        var element1 = dom.childAt(element0, [1]);
+        var element2 = dom.childAt(element0, [3]);
+        var element3 = dom.childAt(element0, [5]);
+        var morph0 = dom.createMorphAt(element1,0,1);
+        var morph1 = dom.createMorphAt(element2,0,1);
+        var morph2 = dom.createMorphAt(element3,0,1);
+        var morph3 = dom.createMorphAt(dom.childAt(fragment, [2]),0,1);
+        element(env, element1, context, "bind-attr", [], {"class": "isHome:active"});
+        block(env, morph0, context, "link-to", ["home"], {}, child0, null);
+        element(env, element2, context, "bind-attr", [], {"class": "isDebugDemo:active"});
+        block(env, morph1, context, "link-to", ["debug-demo"], {}, child1, null);
+        element(env, element3, context, "bind-attr", [], {"class": "isWithStyle:active"});
+        block(env, morph2, context, "link-to", ["with-style"], {}, child2, null);
+        content(env, morph3, context, "outlet");
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('dummy/templates/components/completable-input', ['exports', 'ember'], function (exports, Ember) {
+define('dummy/templates/components/completable-input', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data
-  /**/) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', stack1, helper, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
-
-  function program1(depth0,data) {
-    
-    var buffer = '', stack1;
-    data.buffer.push("\r\n      <div ");
-    data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
-      'class': (":completion-candidate candidate.isActive:active")
-    },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
-    data.buffer.push("\r\n        ");
-    data.buffer.push(escapeExpression(helpers.action.call(depth0, "selectComplement", "candidate", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
-    data.buffer.push(">\r\n        ");
-    stack1 = helpers._triageMustache.call(depth0, "candidate.value", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\r\n      </div>\r\n    ");
-    return buffer;
-    }
-
-    data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
-      'type': ("text"),
-      'class': ("inputClassNames"),
-      'value': ("value"),
-      'placeholder': ("placeholder"),
-      'enter': ("enterPressed")
-    },hashTypes:{'type': "STRING",'class': "ID",'value': "ID",'placeholder': "ID",'enter': "STRING"},hashContexts:{'type': depth0,'class': depth0,'value': depth0,'placeholder': depth0,'enter': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-    data.buffer.push("\r\n\r\n\r\n\r\n  <div ");
-    data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
-      'class': (":completion-list showCompletions:show:hide")
-    },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
-    data.buffer.push(">\r\n  <!--<div class=\"completion-list\">-->\r\n    ");
-    stack1 = helpers.each.call(depth0, "candidate", "in", "potentialComplements", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\r\n  </div>\r\n\r\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    var child0 = (function() {
+      return {
+        isHTMLBars: true,
+        blockParams: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        build: function build(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("      ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          var el2 = dom.createTextNode("\n        ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n      ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        render: function render(context, env, contextualElement) {
+          var dom = env.dom;
+          var hooks = env.hooks, element = hooks.element, get = hooks.get, content = hooks.content;
+          dom.detectNamespace(contextualElement);
+          var fragment;
+          if (env.useFragmentCache && dom.canClone) {
+            if (this.cachedFragment === null) {
+              fragment = this.build(dom);
+              if (this.hasRendered) {
+                this.cachedFragment = fragment;
+              } else {
+                this.hasRendered = true;
+              }
+            }
+            if (this.cachedFragment) {
+              fragment = dom.cloneNode(this.cachedFragment, true);
+            }
+          } else {
+            fragment = this.build(dom);
+          }
+          var element0 = dom.childAt(fragment, [1]);
+          var morph0 = dom.createMorphAt(element0,0,1);
+          element(env, element0, context, "bind-attr", [], {"class": ":completion-candidate candidate.isActive:active"});
+          element(env, element0, context, "action", ["selectComplement", get(env, context, "candidate")], {});
+          content(env, morph0, context, "candidate.value");
+          return fragment;
+        }
+      };
+    }());
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("<div class=\"completion-list\">");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("  ");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, get = hooks.get, inline = hooks.inline, element = hooks.element, block = hooks.block;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        if (this.cachedFragment) { dom.repairClonedNode(fragment,[0]); }
+        var element1 = dom.childAt(fragment, [2]);
+        var morph0 = dom.createMorphAt(fragment,0,1,contextualElement);
+        var morph1 = dom.createMorphAt(element1,2,3);
+        inline(env, morph0, context, "input", [], {"type": "text", "class": get(env, context, "inputClassNames"), "value": get(env, context, "value"), "placeholder": get(env, context, "placeholder"), "enter": "enterPressed"});
+        element(env, element1, context, "bind-attr", [], {"class": ":completion-list showCompletions:show:hide"});
+        block(env, morph1, context, "each", [get(env, context, "potentialComplements")], {"keyword": "candidate"}, child0, null);
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('dummy/templates/debug-demo', ['exports', 'ember'], function (exports, Ember) {
+define('dummy/templates/debug-demo', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data
-  /**/) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-
-
-    data.buffer.push("<h1> welcome to the demo/test page! </h1>\n\n\n<fieldset>\n  <legend>The actual component</legend>\n  <p class=\"text-center\">\n    Enter something:\n    ");
-    data.buffer.push(escapeExpression((helper = helpers['completable-input'] || (depth0 && depth0['completable-input']),options={hash:{
-      'value': ("completableValue"),
-      'placeholder': ("start typing and completion will appear"),
-      'complements': ("complements"),
-      'selectedCompletion': ("currentCompletion"),
-      'enter': ("completableEnterPressed"),
-      'minForComplement': ("minForComplement"),
-      'potentialComplements': ("potentialComplements"),
-      'inFocus': ("inFocus"),
-      'activeComplement': ("activeComplement")
-    },hashTypes:{'value': "ID",'placeholder': "STRING",'complements': "ID",'selectedCompletion': "ID",'enter': "STRING",'minForComplement': "ID",'potentialComplements': "ID",'inFocus': "ID",'activeComplement': "ID"},hashContexts:{'value': depth0,'placeholder': depth0,'complements': depth0,'selectedCompletion': depth0,'enter': depth0,'minForComplement': depth0,'potentialComplements': depth0,'inFocus': depth0,'activeComplement': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "completable-input", options))));
-    data.buffer.push("\n  </p>\n</fieldset>\n\n\n<form>\n  <fieldset>\n    <legend>parameters</legend>\n    <label for=\"minForComplement\">Minimal number of character before showing up completions?</label><br/>\n    ");
-    data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
-      'type': ("number"),
-      'min': (0),
-      'value': ("minForComplement"),
-      'id': ("minForComplement")
-    },hashTypes:{'type': "STRING",'min': "INTEGER",'value': "ID",'id': "STRING"},hashContexts:{'type': depth0,'min': depth0,'value': depth0,'id': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-    data.buffer.push("<br/>\n    <label for=\"possibleComplements\">Place complements here, separate by a comma or a new line (pre-filled by the list of countries from <a href=\"http://openconcept.ca/blog/mgifford/text-list-all-countries-world\">here</a>)</label><br/>\n    ");
-    data.buffer.push(escapeExpression((helper = helpers.textarea || (depth0 && depth0.textarea),options={hash:{
-      'value': ("possibleComplements"),
-      'rows': (8),
-      'id': ("possibleComplements")
-    },hashTypes:{'value': "ID",'rows': "INTEGER",'id': "STRING"},hashContexts:{'value': depth0,'rows': depth0,'id': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "textarea", options))));
-    data.buffer.push("<br/>\n  </fieldset>\n</form>\n\n<div>\n  <fieldset>\n    <legend>debug zone</legend>\n\n    <p>\n      showCompletions? ");
-    stack1 = helpers._triageMustache.call(depth0, "showCompletions", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push(" <br/>\n      potentialComplements.length?  ");
-    stack1 = helpers._triageMustache.call(depth0, "potentialComplements.length", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push(" <br/>\n      inFocus? ");
-    stack1 = helpers._triageMustache.call(depth0, "inFocus", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("<br/>\n      activeComplement? ");
-    stack1 = helpers._triageMustache.call(depth0, "activeComplement.value", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n    </p>\n  </fieldset>\n</div>\n\n\n\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("h1");
+        var el2 = dom.createTextNode(" welcome to the demo/test page! ");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("fieldset");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("legend");
+        var el3 = dom.createTextNode("The actual component");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("p");
+        dom.setAttribute(el2,"class","text-center");
+        var el3 = dom.createTextNode("\n    Enter something:\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("form");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("fieldset");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("legend");
+        var el4 = dom.createTextNode("parameters");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("label");
+        dom.setAttribute(el3,"for","minForComplement");
+        var el4 = dom.createTextNode("Minimal number of character before showing up completions?");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("label");
+        dom.setAttribute(el3,"for","possibleComplements");
+        var el4 = dom.createTextNode("Place complements here, separate by a comma or a new line (pre-filled by the list of countries from ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("a");
+        dom.setAttribute(el4,"href","http://openconcept.ca/blog/mgifford/text-list-all-countries-world");
+        var el5 = dom.createTextNode("here");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode(")");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("fieldset");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("legend");
+        var el4 = dom.createTextNode("debug zone");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("p");
+        var el4 = dom.createTextNode("\n      potentialComplements.length?  ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode(" ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("br");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n      inFocus? ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("br");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n      activeComplement? ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, get = hooks.get, inline = hooks.inline, content = hooks.content;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        var element0 = dom.childAt(fragment, [4, 1]);
+        var element1 = dom.childAt(fragment, [6, 1, 3]);
+        var morph0 = dom.createMorphAt(dom.childAt(fragment, [2, 3]),0,1);
+        var morph1 = dom.createMorphAt(element0,5,6);
+        var morph2 = dom.createMorphAt(element0,10,11);
+        var morph3 = dom.createMorphAt(element1,0,1);
+        var morph4 = dom.createMorphAt(element1,3,4);
+        var morph5 = dom.createMorphAt(element1,5,6);
+        inline(env, morph0, context, "completable-input", [], {"value": get(env, context, "completableValue"), "placeholder": "start typing and completion will appear", "complements": get(env, context, "complements"), "selectedCompletion": get(env, context, "currentCompletion"), "enter": "completableEnterPressed", "minForComplement": get(env, context, "minForComplement"), "potentialComplements": get(env, context, "potentialComplements"), "inFocus": get(env, context, "inFocus"), "activeComplement": get(env, context, "activeComplement")});
+        inline(env, morph1, context, "input", [], {"type": "number", "min": 0, "value": get(env, context, "minForComplement"), "id": "minForComplement"});
+        inline(env, morph2, context, "textarea", [], {"value": get(env, context, "possibleComplements"), "rows": 8, "id": "possibleComplements"});
+        content(env, morph3, context, "potentialComplements.length");
+        content(env, morph4, context, "inFocus");
+        content(env, morph5, context, "activeComplement.value");
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('dummy/templates/home', ['exports', 'ember'], function (exports, Ember) {
+define('dummy/templates/home', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data
-  /**/) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', stack1, helper, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
-
-
-    data.buffer.push("<div>\r\n  ");
-    data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "mdText", {hash:{
-      'unescaped': ("true")
-    },hashTypes:{'unescaped': "STRING"},hashContexts:{'unescaped': depth0},contexts:[depth0],types:["ID"],data:data})));
-    data.buffer.push("\r\n</div>\r\n\r\n<p class=\"center\">\r\n  Pick your country:\r\n  ");
-    data.buffer.push(escapeExpression((helper = helpers['completable-input'] || (depth0 && depth0['completable-input']),options={hash:{
-      'value': ("completableValue"),
-      'placeholder': ("start typing and completion will appear"),
-      'complements': ("complements"),
-      'enter': ("completableEnterPressed"),
-      'minForComplement': (3),
-      'selectedCompletion': ("selectedCompletion")
-    },hashTypes:{'value': "ID",'placeholder': "STRING",'complements': "ID",'enter': "STRING",'minForComplement': "INTEGER",'selectedCompletion': "ID"},hashContexts:{'value': depth0,'placeholder': depth0,'complements': depth0,'enter': depth0,'minForComplement': depth0,'selectedCompletion': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "completable-input", options))));
-    data.buffer.push("\r\n  <br/>\r\n  Value: ");
-    stack1 = helpers._triageMustache.call(depth0, "completableValue", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push(" <br/>\r\n  Selected completion: ");
-    stack1 = helpers._triageMustache.call(depth0, "selectedCompletion", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\r\n</p>\r\n\r\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("div");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("p");
+        dom.setAttribute(el1,"class","center");
+        var el2 = dom.createTextNode("\n  Pick your country:\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("br");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  Value: ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode(" ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("br");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  Selected completion: ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, content = hooks.content, get = hooks.get, inline = hooks.inline;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        var element0 = dom.childAt(fragment, [2]);
+        var morph0 = dom.createUnsafeMorphAt(dom.childAt(fragment, [0]),0,1);
+        var morph1 = dom.createMorphAt(element0,0,1);
+        var morph2 = dom.createMorphAt(element0,3,4);
+        var morph3 = dom.createMorphAt(element0,6,7);
+        content(env, morph0, context, "mdText");
+        inline(env, morph1, context, "completable-input", [], {"value": get(env, context, "completableValue"), "placeholder": "start typing and completion will appear", "complements": get(env, context, "complements"), "enter": "completableEnterPressed", "minForComplement": 3, "selectedCompletion": get(env, context, "selectedCompletion")});
+        content(env, morph2, context, "completableValue");
+        content(env, morph3, context, "selectedCompletion");
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('dummy/templates/with-style', ['exports', 'ember'], function (exports, Ember) {
+define('dummy/templates/with-style', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data
-  /**/) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-
-
-    data.buffer.push("\r\n<p class=\"custom text-center\">\r\n  Select something cool:\r\n  ");
-    data.buffer.push(escapeExpression((helper = helpers['completable-input'] || (depth0 && depth0['completable-input']),options={hash:{
-      'placeholder': ("start typing and completion will appear"),
-      'complements': ("complements"),
-      'enter': ("completableEnterPressed"),
-      'minForComplement': (0)
-    },hashTypes:{'placeholder': "STRING",'complements': "ID",'enter': "STRING",'minForComplement': "INTEGER"},hashContexts:{'placeholder': depth0,'complements': depth0,'enter': depth0,'minForComplement': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "completable-input", options))));
-    data.buffer.push("\r\n</p>\r\n\r\n<!--<div class=\"jumbotron\">-->\r\n  ");
-    data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "mdText", {hash:{
-      'unescaped': ("true")
-    },hashTypes:{'unescaped': "STRING"},hashContexts:{'unescaped': depth0},contexts:[depth0],types:["ID"],data:data})));
-    data.buffer.push("\r\n<!--</div>-->\r\n\r\n\r\n\r\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("p");
+        dom.setAttribute(el1,"class","custom text-center");
+        var el2 = dom.createTextNode("\n  Select something cool:\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("<div class=\"jumbotron\">");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n  ");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("</div>");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, get = hooks.get, inline = hooks.inline, content = hooks.content;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        var morph0 = dom.createMorphAt(dom.childAt(fragment, [1]),0,1);
+        var morph1 = dom.createUnsafeMorphAt(fragment,4,5,contextualElement);
+        inline(env, morph0, context, "completable-input", [], {"placeholder": "start typing and completion will appear", "complements": get(env, context, "complements"), "enter": "completableEnterPressed", "minForComplement": 0});
+        content(env, morph1, context, "mdText");
+        return fragment;
+      }
+    };
+  }()));
 
 });
 define('dummy/tests/app.jshint', function () {
@@ -628,6 +1094,219 @@ define('dummy/tests/test-helper.jshint', function () {
   });
 
 });
+define('dummy/tests/unit/components/completable-input-test', ['ember-qunit', 'ember'], function (ember_qunit, Ember) {
+
+  'use strict';
+
+  var complements = ["Ember.js", "emberobserver", "emberaddons", "ember-cli", "HTMLbars", "handlebars", "bitzik"];
+
+  ember_qunit.moduleForComponent("completable-input", "CompletableInputComponent", {});
+
+  ember_qunit.test("it renders", function () {
+    expect(2);
+
+    // creates the component instance
+    var self = this,
+        component;
+    Ember['default'].run(function () {
+      component = self.subject();
+      equal(component._state, "preRender");
+      // appends the component to the page
+      self.append();
+      equal(component._state, "inDOM");
+    });
+  });
+
+  ember_qunit.test("if no inputted text and minForComplement=0 all the complements should be present", function () {
+    "use strict";
+    expect(1);
+    var self = this,
+        component;
+    Ember['default'].run(function () {
+      component = self.subject();
+      self.append();
+      component.set("complements", complements);
+      component.set("value", "");
+      component.set("minForComplement", 0);
+    });
+    Ember['default'].run(function () {
+      equal(component.get("potentialComplements.length"), complements.length, "input-text=\"\" so all complements should be potential");
+    });
+  });
+
+  ember_qunit.test("the completion filtering should work - case insensitive", function () {
+    "use strict";
+    var self = this,
+        component;
+    expect(4);
+    Ember['default'].run(function () {
+      component = self.subject({
+        minForComplement: 3,
+        complements: complements,
+        caseSensitive: false
+      });
+      component.set("value", "emb");
+    });
+    Ember['default'].run(function () {
+      deepEqual(component.get("potentialComplements").map(function (item) {
+        return { value: item.value, isActive: item.isActive };
+      }).sortBy("value"), ["Ember.js", "emberobserver", "emberaddons", "ember-cli"].map(function (item) {
+        return { value: item, isActive: false };
+      }).sortBy("value"), "input-text=\"emb\" minForComplement=3");
+      component.set("value", "H");
+      component.set("minForComplement", 1);
+    });
+    Ember['default'].run(function () {
+      deepEqual(component.get("potentialComplements").map(function (item) {
+        return { value: item.value, isActive: item.isActive };
+      }).sortBy("value"), ["HTMLbars", "handlebars"].map(function (item) {
+        return { value: item, isActive: false };
+      }).sortBy("value"), "input-text=\"H\" minForComplement=1");
+      component.set("minForComplement", 2);
+    });
+    Ember['default'].run(function () {
+      deepEqual(component.get("potentialComplements").map(function (item) {
+        return { value: item.value, isActive: item.isActive };
+      }).sortBy("value"), [], "input-text=\"H\" minForComplement=2");
+      component.set("minForComplement", 0);
+      component.set("value", "");
+    });
+    Ember['default'].run(function () {
+      deepEqual(component.get("potentialComplements").map(function (item) {
+        return { value: item.value, isActive: item.isActive };
+      }).sortBy("value"), complements.map(function (item) {
+        return { value: item, isActive: false };
+      }).sortBy("value"), "input-text=\"\" minForComplement=0");
+    });
+  });
+
+  ember_qunit.test("the completion filtering should work - case sensitive", function () {
+    "use strict";
+    var self = this,
+        component;
+    expect(5);
+    Ember['default'].run(function () {
+      component = self.subject({
+        minForComplement: 3,
+        complements: complements,
+        caseSensitive: true
+      });
+      component.set("value", "emb");
+    });
+    Ember['default'].run(function () {
+      deepEqual(component.get("potentialComplements").map(function (item) {
+        return { value: item.value, isActive: item.isActive };
+      }).sortBy("value"), ["emberobserver", "emberaddons", "ember-cli"].map(function (item) {
+        return { value: item, isActive: false };
+      }).sortBy("value"), "input-text=\"emb\" minForComplement=3");
+      component.set("value", "H");
+      component.set("minForComplement", 1);
+    });
+    Ember['default'].run(function () {
+      deepEqual(component.get("potentialComplements").map(function (item) {
+        return { value: item.value, isActive: item.isActive };
+      }).sortBy("value"), ["HTMLbars"].map(function (item) {
+        return { value: item, isActive: false };
+      }).sortBy("value"), "input-text=\"H\" minForComplement=1");
+      component.set("minForComplement", 2);
+    });
+    Ember['default'].run(function () {
+      deepEqual(component.get("potentialComplements").map(function (item) {
+        return { value: item.value, isActive: item.isActive };
+      }).sortBy("value"), [], "input-text=\"H\" minForComplement=2");
+      component.set("minForComplement", 0);
+      component.set("value", "");
+    });
+    Ember['default'].run(function () {
+      deepEqual(component.get("potentialComplements").map(function (item) {
+        return { value: item.value, isActive: item.isActive };
+      }).sortBy("value"), complements.map(function (item) {
+        return { value: item, isActive: false };
+      }).sortBy("value"), "input-text=\"\" minForComplement=0");
+      component.set("value", "h");
+    });
+    Ember['default'].run(function () {
+      deepEqual(component.get("potentialComplements").map(function (item) {
+        return { value: item.value, isActive: item.isActive };
+      }).sortBy("value"), ["handlebars"].map(function (item) {
+        return { value: item, isActive: false };
+      }).sortBy("value"), "input-text=\"h\" minForComplement=0");
+    });
+  });
+
+  ember_qunit.test("show completion when in focus and the right number of character have been inputed", function () {
+    "use strict";
+    expect(6);
+
+    var self = this,
+        component;
+    Ember['default'].run(function () {
+      component = self.subject({
+        complements: complements,
+        minForComplement: 0
+      });
+      self.append();
+      component.set("inFocus", true);
+    });
+    Ember['default'].run(function () {
+      ok(component.get("showCompletions"), "completion list should be shown: input-value=\"\" minForComplement=0, in focus");
+      component.set("minForComplement", 3);
+    });
+    Ember['default'].run(function () {
+      ok(!component.get("showCompletions"), "completion list should not be shown: input-value=\"\" minForComplement=3, in focus");
+      component.set("value", "emb");
+    });
+    Ember['default'].run(function () {
+      ok(component.get("showCompletions"), "completion list should be shown: input-value=\"emb\" minForComplement=3, in focus");
+      component.set("inFocus", false);
+    });
+    Ember['default'].run(function () {
+      ok(!component.get("showCompletions"), "completion list should not be shown: input-value=\"emb\" minForComplement=3, NOT in focus");
+      component.set("minForComplement", 0);
+    });
+    Ember['default'].run(function () {
+      ok(!component.get("showCompletions"), "completion list should NOT be shown: input-value=\"emb\" minForComplement=0, NOT in focus");
+      component.set("inFocus", true);
+    });
+    Ember['default'].run(function () {
+      ok(component.get("showCompletions"), "completion list should be shown: input-value=\"emb\" minForComplement=0, in focus");
+    });
+  });
+
+  ember_qunit.test("hide completions - ui test", function () {
+    "use strict";
+    var self = this,
+        component,
+        $input;
+    Ember['default'].run(function () {
+      component = self.subject({
+        complements: complements,
+        minForComplement: 0
+      });
+      self.append();
+      $input = component.$("input.completable-input-entry");
+      equal($input.size(), 1, "there is only one input");
+      $input.focus();
+    });
+    Ember['default'].run(function () {
+      $input.focus();
+      ok(component.get("inFocus"), "the input-text should now be focused");
+    });
+  });
+  // specify the other units that are required for this test
+  // needs: ['component:foo', 'helper:bar']
+
+});
+define('dummy/tests/unit/components/completable-input-test.jshint', function () {
+
+  'use strict';
+
+  module('JSHint - unit/components');
+  test('unit/components/completable-input-test.js should pass jshint', function() { 
+    ok(true, 'unit/components/completable-input-test.js should pass jshint.'); 
+  });
+
+});
 /* jshint ignore:start */
 
 define('dummy/config/environment', ['ember'], function(Ember) {
@@ -652,7 +1331,7 @@ catch(err) {
 if (runningTests) {
   require("dummy/tests/test-helper");
 } else {
-  require("dummy/app")["default"].create({"name":"ember-cli-completable-input","version":"0.1.1.af4f4388"});
+  require("dummy/app")["default"].create({"name":"ember-cli-completable-input","version":"0.2.0.363c7ac0"});
 }
 
 /* jshint ignore:end */
